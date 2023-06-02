@@ -1,0 +1,34 @@
+<div class="Content">
+   
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title><h1>{{journey.origin}} - {{journey.destination}} </h1></mat-card-title>
+         
+          <h2> Precio Total : {{journey.price}}</h2>
+        </mat-card-header>
+    
+            <mat-card-content class="card-content">
+               
+                
+
+                <div class="content-flight" *ngFor="let flight of  journey.flights" >
+
+                <p>Origen: {{flight.arrivalStation}} </p>
+                <p>destino: {{flight.departureStation}}</p>
+                <p>Vuelo: {{flight.flightNumber}}</p>
+                <p>Precio: {{flight.price}}</p>
+                <p>Moneda: {{flight.flightCarrier}}</p>
+                </div>
+
+                
+            </mat-card-content>
+        <mat-card-actions align="end" class="content-summit">
+          <!-- <button mat-button color="primary" class="Summit" type="submit">Buscar</button> -->
+        
+        </mat-card-actions>
+
+      </mat-card>
+
+
+     
+</div>

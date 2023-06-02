@@ -1,0 +1,50 @@
+<div class="Content">
+   
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title><h1>Busqueda de vuelos </h1></mat-card-title>
+         
+          
+        </mat-card-header>
+        
+        <form (ngSubmit)="eventFrom()" #myForm="ngForm" [formGroup]="Form" >
+            <mat-card-content class="card-content">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Origen</mat-label>
+                    <input matInput type="text"
+                     name="origin" 
+                     formControlName="origin"
+                     [(ngModel)]="Search.origin" > 
+                    <mat-error *ngIf="origin.errors?.['minlength']">No se puede menor a tres digitos</mat-error>
+                    <mat-error *ngIf="origin.errors?.['maxlength']">No se puede se mayor  a tres digitos</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-form-field">
+                    <mat-label>Destino</mat-label>
+                    <input matInput type="text"   formControlName="destination" name="Destination" [(ngModel)]="Search.destination" > 
+                    <mat-error *ngIf="destination.errors?.['minlength']">No se puede menor a tres digitos</mat-error>
+                    <mat-error *ngIf="destination.errors?.['maxlength']">No se puede se mayor  a tres digitos</mat-error>
+                  </mat-form-field>
+                
+
+                  <mat-form-field class="example-form-field">
+                    <mat-label>Tipo de Moneda</mat-label>
+                    <mat-select [disabled]="disableSelect.value">
+                      <mat-option value="COP">COP</mat-option>
+                      <mat-option value="USD" >USD </mat-option>
+                      <mat-option value="EUR">EUR</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-card-content>
+        <mat-card-actions align="end" class="content-summit">
+          <button mat-button color="primary" class="Summit" type="submit">Buscar</button>
+        
+        </mat-card-actions>
+    </form>
+      </mat-card>
+
+
+        <app-view-fligth   *ngFor="let Journey of  ListJourney"
+        [journey]="Journey" ></app-view-fligth>
+     
+</div>
